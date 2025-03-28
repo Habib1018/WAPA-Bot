@@ -1,9 +1,10 @@
 from flask import Flask, request
+import os
 
 app = Flask(__name__)
 
-VERIFY_TOKEN = "WAPA2025PODER"  # Reemplaza si usas otro
-ACCESS_TOKEN = "TU_ACCESS_TOKEN_DE_META"
+VERIFY_TOKEN = os.getenv("VERIFY_TOKEN")
+ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
 
 @app.route("/", methods=["GET"])
 def verify():
